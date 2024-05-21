@@ -1,26 +1,39 @@
-import logo from '../../assets/logo.svg';
-
+import { useState } from 'react';
+// import logo from '../../assets/logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import Header from '../Header/Header';
+import Home from '../Home/Home';
+import Error from '../Error/Error';
 import './App.scss';
+import About from '../About/About';
+import Footer from '../Footer/Footer';
+import Portfolio from '../Portfolio/Portfolio';
+import Up from '../Up/Up';
 
 function App() {
+  const [dropdownMenuIsOpen, setDropdownMenuIsOpen] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-
-        <p>
-          Edit <code>src/components/App/App.jsx</code> and save to reload.
-        </p>
-
-        <a
-          className="App-link"
-          href="https://react.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Up />
+      <Header
+        dropdownMenuIsOpen={dropdownMenuIsOpen}
+        setDropdownMenuIsOpen={setDropdownMenuIsOpen}
+      />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/about"
+          element={
+            <>
+              <About />{' '}
+            </>
+          }
+        />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,41 @@
+@use '../../styles/variables';
+
+.up-container {
+  height: 80px;
+  width: 80px;
+  border-radius: 100px;
+  background-color: variables.$emphaseColor;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  box-shadow: variables.$textShadow;
+  border: none;
+  z-index: 100;
+  transition: 0.5s;
+  &:active {
+    scale: 0.8;
+    transition: 0.3s;
+  }
+  &-hidden {
+    transform: translateX(200px);
+    transition: 0.5s;
+  }
+
+  .up-content {
+    font-size: variables.$fsStandard * 2.5;
+
+    rotate: -90deg;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 572px) {
+  .up-container {
+    height: 60px;
+    width: 60px;
+  }
+}

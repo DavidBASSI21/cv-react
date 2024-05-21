@@ -1,0 +1,52 @@
+@use '../../../styles/variables';
+
+.introduction-container {
+  width: 80%;
+  margin: variables.$gutter * 3 auto;
+  .introduction-title-container {
+    display: flex;
+    margin-bottom: variables.$gutter * 2;
+  }
+  .introduction-title {
+    font-size: variables.$fsStandard * 3.4;
+    font-weight: variables.$fwStandard * 2;
+    color: variables.$darkTextColor;
+  }
+  .introduction-title-img {
+    width: 50px;
+    margin-left: variables.$gutter;
+    animation: waveHand 1.8s linear infinite;
+  }
+
+  .introduction-paragraph {
+    font-size: variables.$fsStandard * 1.25;
+    text-align: justify;
+    margin-bottom: variables.$gutter;
+    letter-spacing: 0.8px;
+    line-height: 1.8em;
+  }
+  .introduction-paragraph-strong {
+    font-weight: variables.$fwStandard * 2;
+  }
+}
+
+@keyframes waveHand {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-10deg);
+  }
+  40% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-10deg);
+  }
+  80% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

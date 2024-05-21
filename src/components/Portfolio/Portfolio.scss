@@ -1,0 +1,98 @@
+@use '../../styles/variables';
+
+.portfolio-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+  margin: variables.$gutter * 2 auto;
+  gap: 1rem;
+}
+
+.project-container {
+  position: relative;
+  hyphens: auto;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 23%;
+  flex-wrap: wrap;
+  height: 500px;
+  background-color: #fff;
+  .project-header {
+    border-radius: 15px 15px 0 0;
+    background-color: beige;
+    width: 100%;
+    height: 220px;
+    margin-bottom: variables.$gutter * 0.5;
+  }
+  .project-title {
+    font-size: variables.$fsStandard * 1.4;
+    font-weight: variables.$fwStandard * 1.5;
+    padding: 0 20px;
+    margin-bottom: variables.$gutter * 0.5;
+  }
+  .project-description {
+    padding: 0 20px;
+    font-weight: 300;
+    text-align: justify;
+    font-size: variables.$fsStandard * 0.9;
+    line-height: variables.$gutter * 0.7;
+    margin-bottom: variables.$gutter * 0.5;
+  }
+  .project-techno {
+    position: absolute;
+    background: variables.$darkTextColor;
+    padding: 8px 5px;
+    color: variables.$lightTextColor;
+    font-weight: 600;
+    border-radius: 0 5px 5px 0;
+    top: 30px;
+  }
+  .project-button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 16px;
+    background-color: variables.$emphaseColor;
+    border-radius: 3px;
+    bottom: 20px;
+    border: none;
+    width: fit-content;
+    color: variables.$lightTextColor;
+    transition: 0.3s;
+    font-weight: 600;
+
+    &:hover {
+      background-color: variables.$darkTextColor;
+      transition: 0.3s;
+    }
+    &:active {
+      scale: 0.9;
+      transition: 0.3s;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .project-container {
+    width: 31%;
+    .project-header {
+      height: 180px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .project-container {
+    width: 80%;
+    margin: 0 auto;
+    .project-title {
+      padding: 0 30px;
+    }
+    .project-description {
+      font-size: variables.$fsStandard * 1.2;
+      padding: 0 30px;
+    }
+  }
+}

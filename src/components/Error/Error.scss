@@ -1,0 +1,39 @@
+@use '../../styles/variables';
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+  // background-color: variables.$darkTextColor;
+  height: 80vh;
+}
+
+.error-message {
+  font-size: variables.$fsStandard * 3;
+  color: variables.$darkTextColor;
+  padding: variables.$gutter;
+  margin: 0 auto;
+  text-align: center;
+  line-height: variables.$gutter;
+}
+.error-redirect {
+  background-color: variables.$darkTextColor;
+  color: variables.$lightTextColor;
+  width: fit-content;
+  font-size: variables.$fsStandard * 1.8;
+  padding: 20px 35px;
+  margin: 0 auto;
+  border-radius: 3px;
+  border: none;
+  font-weight: 500;
+  transition: 0.3s;
+  &:hover {
+    scale: 1.05;
+    transition: 0.3s;
+  }
+  &:active {
+    scale: 0.9;
+    transition: 0.5s;
+  }
+}
