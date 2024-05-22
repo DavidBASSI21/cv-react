@@ -2,28 +2,26 @@
 
 .home-container-under {
   background: url(../../assets/images/main-bg.png);
-}
-
-.home-container-over {
-  background-color: #ffffff4b;
+  background-size: cover;
   height: 70vh;
   display: flex;
 }
+
 .home-title-container {
   display: flex;
-  width: 40%;
+  width: 50%;
   margin-top: 70px;
   margin-left: 70px;
   height: fit-content;
 }
 
 .home-title {
+  padding: variables.$gutter * 0.5;
   font-size: variables.$fsStandard * 5;
   font-weight: variables.$fwStandard * 2;
   color: #fff;
   text-shadow: variables.$textShadow;
-  background-color: #ffffff73;
-  padding: 20px;
+  background-color: #ffffff60;
   &-span {
     font-size: 0.5em;
     font-weight: 800;
@@ -34,15 +32,21 @@
   .home-title-container-under {
     position: relative;
     .home-title-container {
-      position: absolute;
-      top: 0;
-      left: 0px;
+      // position: absolute;
+      // top: 0;
+      // left: 0px;
 
       // margin: 70px auto;
-      width: 80%;
+      // width: 80%;
     }
   }
   .home-title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: variables.$gutter * 0.25;
+    left: 0;
+    right: 0;
     text-align: center;
     font-size: variables.$fsStandard * 4;
   }

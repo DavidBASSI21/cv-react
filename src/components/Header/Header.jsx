@@ -12,7 +12,7 @@ const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
       </NavLink>
       <div className="location">
         <p className="navbar-location">Mobilité : nationale&nbsp;</p>
-        <img src={pin} alt="" />
+        <img className="navbar-location-img" src={pin} alt="" />
       </div>
       <ul className="navbar-link-container">
         <NavLink

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react';
 import './Skills.scss';
-import cv from '../../../../public/cv-david-bassi.pdf';
+import cv from '../../../assets/cv-david-bassi.pdf';
 import Front from './Front';
 import Back from './Back';
 import ProjectManagement from './ProjectManagement';
@@ -38,6 +38,7 @@ const Skills = () => {
           >
             Intégration web & développement front-end
           </li>
+
           <li
             className={
               skillsVisibility[1]
@@ -77,11 +78,7 @@ const Skills = () => {
       {skillsVisibility[3] && <SoftSkills />}
 
       <div className="cv-download-container">
-        <a
-          className="cv-download-link"
-          href="../../../../public/cv-david-bassi.pdf"
-          download={cv}
-        >
+        <a className="cv-download-link" href={cv} download={cv}>
           Télécharger <br /> mon <br />
           CV
         </a>

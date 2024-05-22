@@ -22,10 +22,13 @@
   .project-header {
     border-radius: 15px 15px 0 0;
     background-color: beige;
+
+    background-size: cover;
     width: 100%;
-    height: 220px;
+    height: 200px;
     margin-bottom: variables.$gutter * 0.5;
   }
+
   .project-title {
     font-size: variables.$fsStandard * 1.4;
     font-weight: variables.$fwStandard * 1.5;
@@ -49,25 +52,39 @@
     border-radius: 0 5px 5px 0;
     top: 30px;
   }
-  .project-button {
+  .project-links-container {
     position: absolute;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    padding: 10px 16px;
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    gap: 1em;
+  }
+
+  .project-link-redirect {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 45%;
+    font-size: variables.$fsStandard * 0.8;
+    text-align: center;
+    padding: 8px 12px;
     background-color: variables.$emphaseColor;
     border-radius: 3px;
     bottom: 20px;
     border: none;
-    width: fit-content;
+    // width: fit-content;
     color: variables.$lightTextColor;
     transition: 0.3s;
     font-weight: 600;
 
     &:hover {
-      background-color: variables.$darkTextColor;
       transition: 0.3s;
     }
     &:active {
+      background-color: variables.$darkTextColor;
       scale: 0.9;
       transition: 0.3s;
     }
@@ -85,7 +102,7 @@
 
 @media (max-width: 576px) {
   .project-container {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     .project-title {
       padding: 0 30px;

@@ -19,6 +19,7 @@
   }
 
   .introduction-paragraph {
+    hyphens: auto;
     font-size: variables.$fsStandard * 1.25;
     text-align: justify;
     margin-bottom: variables.$gutter;

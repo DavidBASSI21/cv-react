@@ -24,14 +24,14 @@
     text-transform: uppercase;
     width: 24%;
     background-image: url(../../../assets/images/main-bg.png);
-    opacity: 0.85;
+    // opacity: 0.85;
     background-size: cover;
     background-position: bottom right;
     font-size: variables.$fsStandard * 1.3;
-    font-weight: variables.$fwStandard * 2.5;
-    color: #fff;
+    color: variables.$darkTextColor;
     text-shadow: variables.$textShadow;
     transition: 0.5s;
+    font-weight: 800;
 
     &-selected {
       transition: 0.5s;
@@ -91,6 +91,7 @@
   .skill {
     font-size: variables.$fsStandard * 1.2;
     margin-bottom: variables.$gutter * 0.25;
+    font-weight: bold;
 
     // text-transform: uppercase;
   }
@@ -130,11 +131,12 @@
 
 @media (max-width: 576px) {
   .skills-cards-container {
+    width: 90%;
+
     .skills-card {
       font-size: variables.$fsStandard * 0.9;
-      font-weight: variables.$fwStandard * 1.5;
+      font-weight: 800;
       width: 48.5%;
-
       margin: 0 auto;
       height: 100px;
     }
@@ -152,7 +154,7 @@
     .skill {
       font-size: variables.$fsStandard * 0.8;
       margin-bottom: variables.$gutter * 0.2;
-      font-weight: variables.$fwStandard;
+      font-weight: variables.$fwStandard * 2;
     }
     .skills-triangle {
       display: none;
