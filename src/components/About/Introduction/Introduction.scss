@@ -51,3 +51,18 @@
     transform: rotate(0deg);
   }
 }
+
+@media (max-width: 576px) {
+  .introduction-title-container {
+    position: relative;
+    .introduction-title {
+      position: absolute;
+      top: -80px;
+    }
+    .introduction-title-img {
+      position: absolute;
+      bottom: -25px;
+      right: 0;
+    }
+  }
+}

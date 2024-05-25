@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import logo from '../../assets/logo.svg';
 import { Route, Routes } from 'react-router-dom';
 import Header from '../Header/Header';
@@ -12,6 +12,16 @@ import Up from '../Up/Up';
 
 function App() {
   const [dropdownMenuIsOpen, setDropdownMenuIsOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth <= 992) {
+      setIsSmallScreen(!isSmallScreen);
+    } else {
+      setIsDesktop(!isDesktop);
+    }
+  }, [isDesktop, isSmallScreen]);
 
   return (
     <div className="App">
@@ -19,6 +29,8 @@ function App() {
       <Header
         dropdownMenuIsOpen={dropdownMenuIsOpen}
         setDropdownMenuIsOpen={setDropdownMenuIsOpen}
+        isSmallScreen={isSmallScreen}
+        isDesktop={isDesktop}
       />
       <Routes>
         <Route path="/" element={<Home />} />

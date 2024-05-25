@@ -7,7 +7,7 @@ const Home = () => {
         <h1 className="home-title">
           David Bassi <br />
           <span className="home-title-span">
-            Développeur web front-end junior
+            Développeur web front end junior
           </span>
         </h1>
       </div>

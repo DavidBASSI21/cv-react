@@ -13,7 +13,7 @@ export default [
   },
   {
     id: 2,
-    title: 'Projet de fin de formation',
+    title: "Projet de fin de formation - Apo'calypse",
     techno: 'ReactJS - Redux',
     description:
       'Ce projet est encore en cours de réalisation et sera disponible sous peu',

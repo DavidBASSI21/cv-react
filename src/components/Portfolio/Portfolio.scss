@@ -70,12 +70,12 @@
     width: 45%;
     font-size: variables.$fsStandard * 0.8;
     text-align: center;
+    justify-content: center;
     padding: 8px 12px;
     background-color: variables.$emphaseColor;
     border-radius: 3px;
     bottom: 20px;
     border: none;
-    // width: fit-content;
     color: variables.$lightTextColor;
     transition: 0.3s;
     font-weight: 600;

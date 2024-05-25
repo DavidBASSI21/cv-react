@@ -1,10 +1,29 @@
 import PropTypes from 'prop-types';
+import { useEffect, useRef } from 'react';
 import './Header.scss';
 import { Menu, X } from 'react-feather';
 import { NavLink } from 'react-router-dom';
 import pin from '../../assets/images/pin.png';
 
 const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
+  const ref = useRef();
+  useEffect(() => {
+    const checkIfClickedOutside = (e) => {
+      if (
+        dropdownMenuIsOpen &&
+        ref.current &&
+        !ref.current.contains(e.target)
+      ) {
+        setDropdownMenuIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', checkIfClickedOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', checkIfClickedOutside);
+    };
+  });
+
   return (
     <nav className="navbar">
       <NavLink to="/" className="navbar-name">
@@ -50,10 +69,11 @@ const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
         {dropdownMenuIsOpen ? <X /> : <Menu />}
       </button>
       <div
+        ref={ref}
         className={
           dropdownMenuIsOpen
-            ? 'dropdown-menu dropdown-menu--open'
-            : ' dropdown-menu'
+            ? 'dropdown-menu dropdown-menu--opened'
+            : ' dropdown-menu dropdown-menu--closed'
         }
       >
         <NavLink
