@@ -5,7 +5,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 90%;
-  margin: variables.$gutter * 2 auto;
+  margin: variables.$gutter * 4.5 auto variables.$gutter * 2;
+  // min-height: 70vh;
   gap: 1rem;
 }
 
@@ -93,7 +94,7 @@
 
 @media (max-width: 992px) {
   .project-container {
-    width: 31%;
+    width: 48%;
     .project-header {
       height: 180px;
     }

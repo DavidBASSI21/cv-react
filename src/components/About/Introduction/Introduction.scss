@@ -2,7 +2,7 @@
 
 .introduction-container {
   width: 80%;
-  margin: variables.$gutter * 3 auto;
+  margin: variables.$gutter * 6 auto;
   .introduction-title-container {
     display: flex;
     margin-bottom: variables.$gutter * 2;
@@ -53,16 +53,23 @@
 }
 
 @media (max-width: 576px) {
-  .introduction-title-container {
+  .introduction-container {
+    margin-top: variables.$gutter * 6;
     position: relative;
-    .introduction-title {
-      position: absolute;
-      top: -80px;
-    }
-    .introduction-title-img {
-      position: absolute;
-      bottom: -25px;
-      right: 0;
-    }
+  }
+
+  .introduction-title {
+    position: absolute;
+    top: -50px;
+    width: 70%;
+  }
+  .introduction-title-img {
+    position: absolute;
+    // bottom: -25px;
+    right: 0;
+  }
+
+  .introduction-paragraph:first-of-type {
+    margin-top: variables.$gutter * 2.5;
   }
 }

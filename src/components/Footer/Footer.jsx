@@ -8,8 +8,8 @@ const Footer = () => {
   const currentYear = currentDate.getFullYear();
 
   return (
-    <div className="footer">
-      <div className="socials-list-container">
+    <div className="footer-container">
+      <div className="socials">
         <ul className="socials-list">
           <li className="socials-link">
             <a href="https://github.com/DavidBASSI21">
@@ -33,9 +33,11 @@ const Footer = () => {
           </li>
         </ul>
       </div>
-      <p className="footer-text">
-        David Bassi &bull; Développeur web front-end &bull; {currentYear}
-      </p>
+      <div className="footer-text">
+        <p className="footer-text">
+          David Bassi &bull; Développeur web front-end &bull; {currentYear}
+        </p>
+      </div>
     </div>
   );
 };

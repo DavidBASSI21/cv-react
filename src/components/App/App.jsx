@@ -10,6 +10,7 @@ import Footer from '../Footer/Footer';
 import Portfolio from '../Portfolio/Portfolio';
 import Up from '../Up/Up';
 import ContactForm from '../ContactForm/ContactForm';
+import NavbarMobile from '../NavbarMobile/NavbarMobile';
 
 function App() {
   const [dropdownMenuIsOpen, setDropdownMenuIsOpen] = useState(false);
@@ -35,14 +36,9 @@ function App() {
   return (
     <div className="App">
       <Up />
-      <Header
-        dropdownMenuIsOpen={dropdownMenuIsOpen}
-        setDropdownMenuIsOpen={setDropdownMenuIsOpen}
-        isSmallScreen={isSmallScreen}
-        isDesktop={isDesktop}
-      />
+      <Header isSmallScreen={isSmallScreen} isDesktop={isDesktop} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home isDesktop={isDesktop} />} />
         <Route
           path="/about"
           element={
@@ -52,9 +48,11 @@ function App() {
           }
         />
         <Route path="/portfolio" element={<Portfolio />} />
+        {isSmallScreen && <Route path="/contact" element={<ContactForm />} />}
         <Route path="*" element={<Error />} />
       </Routes>
-      <Footer />
+      {isDesktop && <Footer />}
+      {isSmallScreen && <NavbarMobile />}
     </div>
   );
 }

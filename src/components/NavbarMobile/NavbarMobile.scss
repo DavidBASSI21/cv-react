@@ -1,0 +1,48 @@
+@use '../../styles/variables';
+
+.navbar-mobile-container {
+  border-top: 1px solid #d1a83857;
+  background-color: variables.$mainColor;
+  display: flex;
+  height: 12vh;
+  // margin-top: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .navbar-mobile-link {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% / 4);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: variables.$darkTextColor;
+    &--active {
+      color: variables.$emphaseColor;
+    }
+    &--icon {
+      scale: 1.5;
+      margin-bottom: 0.8em;
+    }
+    &--label {
+      font-size: variables.$fsStandard * 0.8;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .navbar-mobile-container {
+    height: 10vh;
+    .navbar-mobile-link {
+      scale: 0.8;
+      &--icon {
+        scale: 1.8;
+      }
+      &--label {
+        font-size: variables.$fsStandard * 0.85;
+      }
+    }
+  }
+}

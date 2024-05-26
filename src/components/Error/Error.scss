@@ -3,22 +3,24 @@
 .error-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+  // margin: variables.$gutter * 2 auto;
   // background-color: variables.$darkTextColor;
-  height: 80vh;
+  height: 88vh;
 }
 
 .error-message {
   font-size: variables.$fsStandard * 3;
   color: variables.$darkTextColor;
-  padding: variables.$gutter;
-  margin: 0 auto;
-  text-align: center;
+  padding: variables.$gutter * 0.5;
+  margin: variables.$gutter * 1.5 auto 0 auto;
+  // text-align: center;
+  width: 100%;
   line-height: variables.$gutter;
+  text-align: center;
 }
 .error-redirect {
-  background-color: variables.$darkTextColor;
+  background-color: #042944;
   color: variables.$lightTextColor;
   width: fit-content;
   font-size: variables.$fsStandard * 1.8;

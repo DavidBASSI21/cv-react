@@ -6,7 +6,7 @@
   border-radius: 100px;
   background-color: variables.$emphaseColor;
   position: fixed;
-  bottom: 30px;
+  bottom: 120px;
   right: 30px;
   box-shadow: variables.$textShadow;
   border: none;
@@ -37,5 +37,6 @@
   .up-container {
     height: 60px;
     width: 60px;
+    bottom: 14vh;
   }
 }

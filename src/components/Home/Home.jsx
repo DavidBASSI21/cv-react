@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import ContactForm from '../ContactForm/ContactForm';
 import './Home.scss';
 
-const Home = () => {
+const Home = ({ isDesktop }) => {
   return (
     <div className="home-container-under">
       <div className="home-title-container">
@@ -12,11 +13,17 @@ const Home = () => {
           </span>
         </h1>
       </div>
-      <div className="contact-form-container">
-        <ContactForm />
-      </div>
+      {isDesktop && (
+        <div className="contact-form-container">
+          <ContactForm />
+        </div>
+      )}
     </div>
   );
+};
+
+Home.propTypes = {
+  isDesktop: PropTypes.bool.isRequired,
 };
 
 export default Home;

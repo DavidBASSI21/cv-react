@@ -1,19 +1,29 @@
 @use '../../styles/variables';
-
+.form-title {
+  color: variables.$lightTextColor;
+  font-weight: variables.$fwStandard * 2;
+  font-size: variables.$fsStandard * 1.25;
+  width: 50%;
+  margin: 0 auto variables.$gutter;
+}
+#contact-form {
+  max-height: 55vh;
+  overflow-y: auto;
+}
 .contact-form-container {
   display: flex;
   flex-direction: column;
   position: absolute;
   justify-content: center;
-
   margin: 0 auto;
+  top: 55%;
   width: 50%;
   right: 25%;
-  transform: translateX(50%);
+  transform: translate(50%, -50%);
   height: 100%;
   .contact-form-label {
     display: flex;
-    width: 80%;
+    width: 50%;
     color: #fff;
     margin: 0 auto;
     justify-content: flex-start;
@@ -22,7 +32,7 @@
   }
 
   .formInput {
-    width: 80%;
+    width: 50%;
     height: 3em;
     border-radius: 3px;
     border: none;
@@ -31,10 +41,10 @@
     margin: 0 auto 1em;
     justify-content: center;
     background-color: #fff;
-    resize: none;
     font-family: variables.$mainFont;
+
     &:focus {
-      border: 2px solid variables.$emphaseColor !important;
+      border: 1.5px solid variables.$emphaseColor;
     }
     &::placeholder {
       padding-left: 5px;
@@ -54,8 +64,30 @@
       }
     }
   }
+
+  .formInput-name-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: flex-start;
+    margin: 0 0.5em;
+  }
+
+  .name-container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    // flex-direction: column;
+    // margin: 0;
+    width: 52%;
+  }
+
+  .formInput--name {
+    width: 100%;
+  }
+
   .errorMessage {
-    width: 80%;
+    width: 50%;
     color: rgb(255, 241, 241);
     background-color: rgba(243, 0, 0, 0.548);
     padding: 8px 5px;
@@ -70,7 +102,7 @@
   .alert {
     display: flex;
     position: relative;
-    width: 80%;
+    width: 50%;
     justify-content: flex-start;
     align-items: center;
     margin: 0 auto;
@@ -94,6 +126,157 @@
     height: 2em;
     width: 2em;
     scale: 1.2;
+    padding: 0;
+    justify-content: center;
+    top: 55%;
+    transform: translateY(-50%);
+    right: 20px;
+    text-align: center;
+    border: none;
+    transition: 0.3s;
+    &:active {
+      scale: 0.95;
+      transition: 0.3s;
+    }
+  }
+}
+@media (max-width: 992px) {
+  .contact-form-mobile-container {
+    display: flex;
+    width: 80%;
+    flex-direction: column;
+    margin: variables.$gutter * 5 auto;
+    // background: red;
+    background: #042944;
+    padding: 20px 15px;
+    border-radius: 3px;
+  }
+  .form-title {
+    //
+    width: 100%;
+  }
+  #contact-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .name-container {
+    display: flex;
+    justify-content: space-between;
+    .formInput-name-container {
+      display: flex;
+      flex-direction: column;
+      width: 48%;
+    }
+  }
+  .contact-form-label {
+    font-size: variables.$fsStandard * 1.1;
+    margin-bottom: variables.$gutter * 0.2;
+    color: #fff;
+  }
+  .formInput {
+    min-height: 40px;
+    border-radius: 3px;
+    border: none;
+    margin-bottom: variables.$gutter * 0.5;
+    &::placeholder {
+      padding-left: 5px;
+    }
+    &:focus {
+      border: 1px solid variables.$emphaseColor;
+    }
+    &--button {
+      background-color: #042944;
+      border: 1px solid #fff;
+      color: #fff;
+      font-weight: 800;
+      transition: 0.3s;
+      cursor: pointer;
+      &:active {
+        background-color: #fff;
+        color: #042944;
+        transition: 0.3s;
+        scale: 0.98;
+      }
+    }
+  }
+  .errorMessage {
+    width: 100%;
+    color: rgb(255, 241, 241);
+    background-color: rgba(243, 0, 0, 0.548);
+    padding: 8px 5px;
+    border-radius: 3px;
+    justify-content: flex-start;
+    margin: 0 auto 1em;
+    font-weight: 500;
+
+    display: flex;
+  }
+
+  .alert {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    padding: 8px 10px;
+    height: 3em;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #fff;
+    &-success {
+      background-color: #1a691d;
+    }
+    &-danger {
+      background-color: #c42222;
+    }
+  }
+  .btn-close {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 2em;
+    width: 2em;
+    scale: 1.2;
+    padding: 0;
+    justify-content: center;
+    top: 55%;
+    transform: translateY(-50%);
+    right: 20px;
+    text-align: center;
+    border: none;
+    transition: 0.3s;
+    &:active {
+      scale: 0.95;
+      transition: 0.3s;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .errorMessage {
+    font-size: variables.$fsStandard * 0.8;
+  }
+
+  .alert {
+    font-size: variables.$fsStandard * 0.8;
+    &-success {
+      background-color: #1a691d;
+    }
+    &-danger {
+      background-color: #c42222;
+    }
+  }
+  .btn-close {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 2em;
+    width: 2em;
+    scale: 1;
     padding: 0;
     justify-content: center;
     top: 55%;

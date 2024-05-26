@@ -57,141 +57,170 @@ const ContactForm = () => {
   };
 
   return (
-    <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
-      <label htmlFor="lastName" className="contact-form-label">
-        Votre Nom
-      </label>
-      <input
-        type="text"
-        name="lastName"
-        {...register('lastName', {
-          required: {
-            value: true,
-            message: 'Veuillez saisir votre nom',
-          },
-          maxLength: {
-            value: 50,
-            message: '50 caractères maximum',
-          },
-          pattern: {
-            value: /^[A-Za-z.\s_-]+$/i,
-            message: 'Seulement des caractères alphabétiques',
-          },
-        })}
-        className="form-control formInput"
-        placeholder="Votre nom"
-      />
-      {errors.lastName && (
-        <span className="errorMessage">{errors.lastName.message}</span>
-      )}
-      <label htmlFor="firstName" className="contact-form-label">
-        Votre prénom
-      </label>
-      <input
-        type="text"
-        name="firstName"
-        {...register('firstName', {
-          required: {
-            value: true,
-            message: 'Veuillez saisir votre prénom',
-          },
-          maxLength: {
-            value: 20,
-            message: '20 caractères maximum',
-          },
-          pattern: {
-            value: /^[A-Za-z.\s_-]+$/i,
-            message: 'Seulement des caractères alphabétiques',
-          },
-        })}
-        className="form-control formInput"
-        placeholder="Votre prénom"
-      />
-      {errors.firstName && (
-        <span className="errorMessage">{errors.firstName.message}</span>
-      )}
-      <label htmlFor="email" className="contact-form-label">
-        Votre email
-      </label>
-      <input
-        type="email"
-        name="email"
-        {...register('email', {
-          required: {
-            value: true,
-            message: 'Veuillez saisir une adresse e-mail valide',
-          },
-          pattern: {
-            value:
-              /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            message: 'Adresse e-mail non valide',
-          },
-        })}
-        className="form-control formInput"
-        placeholder="Votre adresse e-mail"
-      />
-      {errors.email && (
-        <span className="errorMessage">{errors.email.message}</span>
-      )}
-      <label htmlFor="subject" className="contact-form-label">
-        Objet
-      </label>
-      <input
-        type="text"
-        name="subject"
-        {...register('subject', {
-          required: {
-            value: true,
-            message: 'Veuillez saisir un objet de message',
-          },
-          maxLength: {
-            value: 125,
-            message: "L'objet ne peut dépasser 125 caractères maximum",
-          },
-        })}
-        className="form-control formInput"
-        placeholder="L'objet de votre message"
-      />
-      {errors.subject && (
-        <span className="errorMessage">{errors.subject.message}</span>
-      )}
-      <label htmlFor="message" className="contact-form-label">
-        Votre message
-      </label>
-      <textarea
-        rows={5}
-        name="message"
-        {...register('message', { required: true })}
-        className=" formInput"
-        placeholder="Votre message"
-      />
+    <div className="contact-form-mobile-container">
+      <h2 className="form-title">Envie d&apos;en savoir plus ? </h2>
+      <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+        <div className="name-container">
+          <div className="formInput-name-container">
+            <label
+              htmlFor="lastName"
+              className="contact-form-label formInput--name"
+            >
+              Nom
+            </label>
+            {/* <div className="formInput--name"> */}
+            <input
+              type="text"
+              name="lastName"
+              {...register('lastName', {
+                required: {
+                  value: true,
+                  message: 'Veuillez saisir votre nom',
+                },
+                maxLength: {
+                  value: 50,
+                  message: '50 caractères maximum',
+                },
+                pattern: {
+                  value: /^[A-Za-z.\s_-]+$/i,
+                  message: 'Seulement des caractères alphabétiques',
+                },
+              })}
+              className="form-control formInput formInput--name"
+              placeholder="Votre nom"
+            />
+          </div>
 
-      <input
-        className="form-control formInput formInput--button"
-        type="submit"
-        value="Okayyy let's go ! "
-      />
-
-      {alertInfo.display && (
-        <div
-          className={`alert alert-${alertInfo.type} alert-dismissible mt-5`}
-          role="alert"
-        >
-          {alertInfo.message}
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-            onClick={() =>
-              setAlertInfo({ display: false, message: '', type: '' })
-            } // Clear the alert when close button is clicked
-          >
-            <IoCloseOutline />
-          </button>
+          <div className="formInput-name-container">
+            <label
+              htmlFor="firstName"
+              className="contact-form-label formInput--name"
+            >
+              Prénom
+            </label>
+            <input
+              type="text"
+              name="firstName"
+              {...register('firstName', {
+                required: {
+                  value: true,
+                  message: 'Veuillez saisir votre prénom',
+                },
+                maxLength: {
+                  value: 20,
+                  message: '20 caractères maximum',
+                },
+                pattern: {
+                  value: /^[A-Za-z.\s_-]+$/i,
+                  message: 'Seulement des caractères alphabétiques',
+                },
+              })}
+              className="form-control formInput formInput--name"
+              placeholder="Votre prénom"
+            />
+          </div>
         </div>
-      )}
-    </form>
+
+        {errors.lastName && (
+          <span className="errorMessage">{errors.lastName.message}</span>
+        )}
+        {errors.firstName && (
+          <span className="errorMessage">{errors.firstName.message}</span>
+        )}
+
+        <label htmlFor="email" className="contact-form-label">
+          Votre email
+        </label>
+        <input
+          type="email"
+          name="email"
+          {...register('email', {
+            required: {
+              value: true,
+              message: 'Veuillez saisir une adresse e-mail valide',
+            },
+            pattern: {
+              value:
+                /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+              message: 'Adresse e-mail non valide',
+            },
+          })}
+          className="form-control formInput"
+          placeholder="Votre adresse e-mail"
+        />
+        {errors.email && (
+          <span className="errorMessage">{errors.email.message}</span>
+        )}
+        <label htmlFor="subject" className="contact-form-label">
+          Objet
+        </label>
+        <input
+          type="text"
+          name="subject"
+          {...register('subject', {
+            required: {
+              value: true,
+              message: 'Veuillez saisir un objet de message',
+            },
+            maxLength: {
+              value: 125,
+              message: "L'objet ne peut dépasser 125 caractères maximum",
+            },
+          })}
+          className="form-control formInput"
+          placeholder="L'objet de votre message"
+        />
+        {errors.subject && (
+          <span className="errorMessage">{errors.subject.message}</span>
+        )}
+        <label htmlFor="message" className="contact-form-label">
+          Votre message
+        </label>
+        {/* <textarea
+          rows={5}
+          name="message"
+          {...register('message', { required: true })}
+          className=" formInput"
+          placeholder="Votre message"
+        /> */}
+
+        <input
+          type="text"
+          name="message"
+          {...register('message', {
+            required: true,
+          })}
+          className="form-control formInput"
+          placeholder="Votre message"
+        />
+
+        <input
+          className="form-control formInput formInput--button"
+          type="submit"
+          value="Okayyyy let's goooo ! "
+        />
+
+        {alertInfo.display && (
+          <div
+            className={`alert alert-${alertInfo.type} alert-dismissible mt-5`}
+            role="alert"
+          >
+            {alertInfo.message}
+            <button
+              type="button"
+              className="btn-close"
+              data-bs-dismiss="alert"
+              aria-label="Close"
+              onClick={() =>
+                setAlertInfo({ display: false, message: '', type: '' })
+              } // Clear the alert when close button is clicked
+            >
+              <IoCloseOutline />
+            </button>
+          </div>
+        )}
+      </form>
+    </div>
   );
 };
 

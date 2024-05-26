@@ -1,31 +1,34 @@
-import PropTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
 import './Header.scss';
-import { Menu, X } from 'react-feather';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import pin from '../../assets/images/pin.png';
 
-const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
-  const ref = useRef();
+const Header = () => {
+  const [prevScrollPosition, setPrevScrollPosition] = useState(
+    window.pageYOffset
+  );
+  const [top, setTop] = useState(0);
+
   useEffect(() => {
-    const checkIfClickedOutside = (e) => {
-      if (
-        dropdownMenuIsOpen &&
-        ref.current &&
-        !ref.current.contains(e.target)
-      ) {
-        setDropdownMenuIsOpen(false);
+    const handleScroll = () => {
+      const currentScrollPosition = window.pageYOffset;
+      if (prevScrollPosition > currentScrollPosition) {
+        setTop(0);
+      } else {
+        setTop(-100);
       }
+      setPrevScrollPosition(currentScrollPosition);
     };
-    document.addEventListener('mousedown', checkIfClickedOutside);
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      document.removeEventListener('mousedown', checkIfClickedOutside);
+      window.removeEventListener('scroll', handleScroll);
     };
-  }, [dropdownMenuIsOpen, setDropdownMenuIsOpen]);
+  }, [prevScrollPosition]);
 
   return (
-    <nav className="navbar">
+    <nav style={{ top: `${top}px` }} className="navbar">
       <NavLink to="/" className="navbar-name">
         David Bassi
       </NavLink>
@@ -59,65 +62,8 @@ const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
           <li>Portfolio</li>
         </NavLink>
       </ul>
-
-      <button
-        type="button"
-        className="toggle-button"
-        onClick={() => {
-          setDropdownMenuIsOpen(!dropdownMenuIsOpen);
-        }}
-      >
-        {dropdownMenuIsOpen ? <X /> : <Menu />}
-      </button>
-      <div
-        ref={ref}
-        className={
-          dropdownMenuIsOpen
-            ? 'dropdown-menu dropdown-menu--opened  '
-            : ' dropdown-menu dropdown-menu--closed  '
-        }
-      >
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive ? 'navbar-link navbar-link--active' : 'navbar-link'
-          }
-          onClick={() => {
-            setDropdownMenuIsOpen(!dropdownMenuIsOpen);
-          }}
-        >
-          Accueil
-        </NavLink>
-        <NavLink
-          to="/about"
-          className={({ isActive }) =>
-            isActive ? 'navbar-link navbar-link--active' : 'navbar-link'
-          }
-          onClick={() => {
-            setDropdownMenuIsOpen(!dropdownMenuIsOpen);
-          }}
-        >
-          A propos
-        </NavLink>{' '}
-        <NavLink
-          to="/portfolio"
-          className={({ isActive }) =>
-            isActive ? 'navbar-link navbar-link--active' : 'navbar-link'
-          }
-          onClick={() => {
-            setDropdownMenuIsOpen(!dropdownMenuIsOpen);
-          }}
-        >
-          Portfolio
-        </NavLink>
-      </div>
     </nav>
   );
-};
-
-Header.propTypes = {
-  dropdownMenuIsOpen: PropTypes.bool.isRequired,
-  setDropdownMenuIsOpen: PropTypes.func.isRequired,
 };
 
 export default Header;

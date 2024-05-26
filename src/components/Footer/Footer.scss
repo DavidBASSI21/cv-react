@@ -1,34 +1,37 @@
 @use '../../styles/variables';
 
-.footer {
-  // position: fixed;
-  background-color: variables.$mainColor;
-  // bottom: 0px;
+.footer-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 12vh;
+  gap: 1em;
   width: 100%;
-  justify-content: center;
-  height: 15vh;
-  font-weight: variables.$fwStandard * 1.2;
-  .footer-text {
-    font-size: variables.$fsStandard * 0.8;
-    margin-bottom: variables.$gutter * 2;
-  }
-}
-
-.socials-list {
-  display: flex;
-  gap: 40px;
-  margin: variables.$gutter * 0.5 auto;
-
-  .socials-link {
-    font-size: variables.$fsStandard * 1.4;
-    transition: 0.5s;
-    &:hover {
-      scale: 1.5;
-      transition: 0.5s;
-      color: variables.$emphaseColor;
+  background-color: #fff;
+  .socials-list {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1em;
+    column-gap: 50px;
+    .socials-link {
+      display: flex;
+      justify-content: center;
+      width: 5%;
+      scale: 1.4;
+      transition: 0.4s;
+      height: 30px;
+      width: 30px;
+      align-items: center;
+      &:hover {
+        background-color: variables.$emphaseColor;
+        transition: 0.4s;
+        border-radius: 30px;
+        color: variables.$lightTextColor;
+      }
     }
+  }
+  .footer-text {
+    text-align: center;
   }
 }

@@ -7,14 +7,14 @@
   hyphens: none;
   position: relative;
   background: linear-gradient(122deg, #021421, #05304f);
-  min-height: 70vh;
+  height: 88vh;
   display: flex;
 }
 
 .home-title-container {
   position: absolute;
-  top: 50%;
-  left: 25%;
+  top: 55%;
+  left: 30%;
   transform: translate(-50%, -50%);
   display: flex;
   width: 45%;
@@ -27,6 +27,7 @@
   color: #fff;
   text-shadow: variables.$textShadow;
   background-color: #ffffff60;
+  text-align: center;
   &-span {
     font-size: 0.5em;
     font-weight: 800;
@@ -34,9 +35,12 @@
 }
 
 @media (max-width: 992px) {
+  .home-container-under {
+    height: 92vh;
+  }
   .home-title-container {
     width: 80%;
-    left: 10%;
+    left: 50%;
     .home-title {
       text-align: center;
     }
@@ -44,14 +48,8 @@
 }
 
 @media (max-width: 576px) {
-  .home-title-container-under {
-    display: flex;
-  }
-  .home-title-container {
-    height: 100%;
-    width: 80%;
-    left: 10%;
-    align-items: center;
+  .home-container-under {
+    height: 95vh;
   }
   .home-title {
     display: flex;
