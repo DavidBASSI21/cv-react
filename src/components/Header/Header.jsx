@@ -22,7 +22,7 @@ const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
     return () => {
       document.removeEventListener('mousedown', checkIfClickedOutside);
     };
-  });
+  }, [dropdownMenuIsOpen, setDropdownMenuIsOpen]);
 
   return (
     <nav className="navbar">
@@ -59,6 +59,7 @@ const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
           <li>Portfolio</li>
         </NavLink>
       </ul>
+
       <button
         type="button"
         className="toggle-button"
@@ -72,8 +73,8 @@ const Header = ({ dropdownMenuIsOpen, setDropdownMenuIsOpen }) => {
         ref={ref}
         className={
           dropdownMenuIsOpen
-            ? 'dropdown-menu dropdown-menu--opened'
-            : ' dropdown-menu dropdown-menu--closed'
+            ? 'dropdown-menu dropdown-menu--opened  '
+            : ' dropdown-menu dropdown-menu--closed  '
         }
       >
         <NavLink

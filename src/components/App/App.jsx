@@ -9,20 +9,29 @@ import About from '../About/About';
 import Footer from '../Footer/Footer';
 import Portfolio from '../Portfolio/Portfolio';
 import Up from '../Up/Up';
+import ContactForm from '../ContactForm/ContactForm';
 
 function App() {
   const [dropdownMenuIsOpen, setDropdownMenuIsOpen] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 992);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 992);
 
   useEffect(() => {
-    if (window.innerWidth <= 992) {
-      setIsSmallScreen(!isSmallScreen);
-    } else {
-      setIsDesktop(!isDesktop);
-    }
-  }, [isDesktop, isSmallScreen]);
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 992);
+      setIsDesktop(window.innerWidth > 992);
+    };
 
+    window.addEventListener('resize', handleResize);
+
+    // Initial check
+    handleResize();
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className="App">
       <Up />

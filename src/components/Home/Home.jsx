@@ -1,3 +1,4 @@
+import ContactForm from '../ContactForm/ContactForm';
 import './Home.scss';
 
 const Home = () => {
@@ -10,6 +11,9 @@ const Home = () => {
             Développeur web front end junior
           </span>
         </h1>
+      </div>
+      <div className="contact-form-container">
+        <ContactForm />
       </div>
     </div>
   );

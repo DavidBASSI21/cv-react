@@ -75,6 +75,7 @@
     display: none;
     height: variables.$gutter * 1.5;
     font-size: variables.$fsStandard * 1.5;
+    overflow-x: hidden;
   }
 
   .navbar {
@@ -83,8 +84,13 @@
 
   .navbar .toggle-button {
     display: block;
+    position: absolute;
+    right: 30px;
     scale: 1.5;
     color: variables.$emphaseColor;
+    &--open {
+      transform: translateX(-100px);
+    }
   }
 
   .navbar .dropdown-menu {

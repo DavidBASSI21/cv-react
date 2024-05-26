@@ -1,0 +1,110 @@
+@use '../../styles/variables';
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+
+  margin: 0 auto;
+  width: 50%;
+  right: 25%;
+  transform: translateX(50%);
+  height: 100%;
+  .contact-form-label {
+    display: flex;
+    width: 80%;
+    color: #fff;
+    margin: 0 auto;
+    justify-content: flex-start;
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+
+  .formInput {
+    width: 80%;
+    height: 3em;
+    border-radius: 3px;
+    border: none;
+    gap: 1em;
+    display: flex;
+    margin: 0 auto 1em;
+    justify-content: center;
+    background-color: #fff;
+    resize: none;
+    font-family: variables.$mainFont;
+    &:focus {
+      border: 2px solid variables.$emphaseColor !important;
+    }
+    &::placeholder {
+      padding-left: 5px;
+    }
+    &--button {
+      background-color: #042944;
+      border: 1px solid #fff;
+      color: #fff;
+      font-weight: 800;
+      transition: 0.3s;
+      cursor: pointer;
+      &:active {
+        background-color: #fff;
+        color: #042944;
+        transition: 0.3s;
+        scale: 0.98;
+      }
+    }
+  }
+  .errorMessage {
+    width: 80%;
+    color: rgb(255, 241, 241);
+    background-color: rgba(243, 0, 0, 0.548);
+    padding: 8px 5px;
+    border-radius: 3px;
+    justify-content: flex-start;
+    margin: 0 auto 1em;
+    font-weight: 500;
+
+    display: flex;
+  }
+
+  .alert {
+    display: flex;
+    position: relative;
+    width: 80%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 auto;
+    padding: 8px 10px;
+    height: 3em;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #fff;
+    &-success {
+      background-color: #1a691d;
+    }
+    &-danger {
+      background-color: #c42222;
+    }
+  }
+  .btn-close {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    height: 2em;
+    width: 2em;
+    scale: 1.2;
+    padding: 0;
+    justify-content: center;
+    top: 55%;
+    transform: translateY(-50%);
+    right: 20px;
+    text-align: center;
+    border: none;
+    transition: 0.3s;
+    &:active {
+      scale: 0.95;
+      transition: 0.3s;
+    }
+  }
+}
